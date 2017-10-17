@@ -1,0 +1,12 @@
+*.pyc
+*.egg-info
+    
+junit*
+.tox
+dist
+build
+pep8.log
+flake8.log
+coverage.xml
+.coverage
+*,cover

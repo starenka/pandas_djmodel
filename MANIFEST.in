@@ -1,0 +1,7 @@
+include *.pip
+
+recursive-include pandas_djmodel *
+
+global-exclude .coverage
+global-exclude *.pyc
+global-exclude *.pyo
