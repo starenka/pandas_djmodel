@@ -2,7 +2,16 @@
 
 `pandas_djmodel` generates a Django model definition from a provided Pandas `DataFrame`. 
 It comes handy when you need to save data from your DataFrame (being a third-party csv, xls, whatever) into your database.
-This is usually a bit of a tricky and boring task. You need to figure out what db fields you should use and what parameters should be set on them. For example, `CharField` requires a `max_length` parameter so you need to check the dataset for maximum length and, as a savvy person, add some extra chars to it. That’s exactly what this little package does. So far it supports pandas’s int, float, object, bool and datetime fields.
+This is usually a bit of a tricky and boring task. You need to figure out what db fields you should use and what parameters should be set on them. For example, `CharField` requires a `max_length` parameter so you need to check the dataset for maximum length and, as a savvy person, add some extra chars to it. That’s exactly what this little package does. 
+
+Supported dtypes:
+
+- ints: checks for smallest possible range f.e. PositiveSmallIntegerField vs BigIntegerField; checks for nulls
+- floats: checks for nulls
+- objects: checks for max length, checks for nulls
+- bools
+- dates & datetimes: checks for nulls
+- any other dtype is represented as CharField
 
 ## Usage
 
