@@ -83,7 +83,7 @@ def mk_model(df, col_casing='snake'):
         dj_field, callbacks = TYPES_MAP.get(col_dtype, UNSUPPORTED_DTYPE)
         cb_res = [one(df[col]) for one in callbacks]
 
-        field_overrides = filter(None, [one.get('field_override', None) for one in cb_res])
+        field_overrides = list(filter(None, [one.get('field_override', None) for one in cb_res]))
         dj_field = dj_field if not field_overrides else field_overrides[-1]
 
         new_col_name = (case_func(col) if case_func else col).strip()
